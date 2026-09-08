@@ -1,0 +1,28 @@
+name: Firmware and decoder checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/test_host.py
+      - run: pip install platformio==6.1.18
+      - run: pio run
+      - uses: actions/upload-artifact@v4
+        with:
+          name: esp32-diagnostic-firmware
+          path: |
+            .pio/build/esp32dev/firmware.bin
+            .pio/build/esp32dev/bootloader.bin
+            .pio/build/esp32dev/partitions.bin
+            .pio/build/esp32dev/firmware.elf
+          if-no-files-found: error
+      - name: Compile commissioned configuration (synthetic values; not an upload artifact)
+        run: |
+          printf '#define DUET_COMMISSIONED 1\n#define DUET_ZERO_OFFSET_VERIFIED 1\n#define DUET_OUTPUT_OFFSET_M -1.2\n' > include/local_config.h
+          pio run

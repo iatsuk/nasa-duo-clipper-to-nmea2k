@@ -1,0 +1,8 @@
+.pio/
+.venv/
+.vscode/
+build/
+__pycache__/
+include/local_config.h
+*.stl
+
