@@ -19,6 +19,8 @@
 | [PGA460 TI](https://www.ti.com/lit/ds/symlink/pga460-q1.pdf) | Почему диапазоны не подходят для штатных 150 кГц |
 | [NMEA2000 library](https://github.com/ttlappalainen/NMEA2000/tree/5b7b9fc3ccc18e30ebfba92da6486cffc6251595) | Формирование PGN, NA, identity и address claim |
 | [NMEA2000_esp32](https://github.com/ttlappalainen/NMEA2000_esp32/tree/15cc30887f0e629fbee0821c5b1de03d130728ac) | CAN-драйвер классического ESP32 |
+| [Victron communication guide](https://www.victronenergy.com/upload/documents/Technical-Information-Data-communication-with-Victron-Energy-products_EN.pdf) | Контакты и цвета NMEA 2000 Micro-C |
+| [Garmin network construction](https://www8.garmin.com/manuals/webhelp/GUID-1415AAD0-FE63-42A6-8F8D-DB713D616122/EN-US/GUID-5A5B475A-AFE1-4949-9B48-DF1A86BB228F.html) | Ответвления и два концевых терминатора |
 
 Опубликованная чужая переделка не подтверждает совместимость другой ревизии NASA.
 Синтетические тесты не являются измерениями датчиков. Бюджет мощности в проекте
