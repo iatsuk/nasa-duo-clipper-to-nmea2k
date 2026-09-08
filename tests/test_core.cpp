@@ -41,6 +41,8 @@ int main() {
     s.ingest(metres_knots,18,137,0);
     near(s.current(1999,2000).depth_m,12.3);
     assert(std::isnan(s.current(2000,2000).depth_m));
+    // Expiration is permanent, including after another complete millis() cycle.
+    assert(std::isnan(s.current(1,2000).depth_m));
     s.ingest(metres_knots,18,137,0xfffffff0u);
     near(s.current(0x10,2000).depth_m,12.3);
     assert(std::isnan(s.current(0x7c0,2000).depth_m));
