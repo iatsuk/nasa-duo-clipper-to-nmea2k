@@ -1,0 +1,1 @@
+# nasa-duo-clipper-to-nmea2k
